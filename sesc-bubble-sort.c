@@ -11,8 +11,11 @@ int main(void) {
 
   for (int i = n; i-->1;)
     for (int j = 0; j < i; j++)
-      if (arr[j] < arr[j + 1])
-        arr[j] ^= arr[j + 1] ^= arr[j] ^= arr[j + 1];
+      if (arr[j] < arr[j + 1]) {
+        int t = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = t;
+      }
   
   for (int i = 0; i < n; i++)
     printf("%d ", arr[i]);
@@ -21,3 +24,5 @@ int main(void) {
   
   return 0;
 }
+
+
